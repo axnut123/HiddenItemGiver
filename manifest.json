@@ -1,11 +1,11 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Hidden Item Giver v1.2.0",
-    "description": "简易的隐藏物品获取器!!\nby YuuhaLand 翻译与扩充：Gyk_Zty",
+    "name": "Hidden Item Giver v1.3.0",
+    "description": "简易的隐藏物品获取器!!\nby:YuuhaLand,翻译与扩充:Gyk_Zty",
     "uuid": "56871955-4cad-436a-80e4-c8f219bd4f7c",
-    "version": [ 1, 2, 0 ],
-    "min_engine_version": [ 1, 21, 51 ]
+    "version": [ 1, 3, 0 ],
+    "min_engine_version": [ 1, 21, 50 ]
   },
   "modules": [
     {

@@ -60,7 +60,8 @@ world.afterEvents.itemUse.subscribe(data => {
     ui.button("气泡柱\n§8minecraft:bubble_column","textures/blocks/bubble_column")
     ui.button("竹子苗\n§8minecraft:bamboo_sapling","textures/blocks/bamboo")
     ui.button("生成蛋\n§8minecraft:item.spawn_egg","textures/items/spawn_egg")
-
+    ui.button("活塞臂\n§8minecraft:piston_arm_collision","textures/blocks/piston")
+    ui.button("细雪\n§8minecraft:powder_snow","textures/blocks/powder_snow")
     ui.show(source).then(({canceled, selection}) => {
       if (canceled) return
       const inventory = source.getComponent("inventory").container
@@ -126,6 +127,8 @@ world.afterEvents.itemUse.subscribe(data => {
       if (selection === 44) { inventory.addItem(new ItemStack("minecraft:bubble_column"))}
       if (selection === 45) { inventory.addItem(new ItemStack("minecraft:bamboo_sapling"))}
       if (selection === 46) { inventory.addItem(new ItemStack("minecraft:spawn_egg"))}
+      if (selection === 47) { inventory.addItem(new ItemStack("minecraft:piston_arm_collision"))}
+      if (selection === 48) { inventory.addItem(new ItemStack("minecraft:powder_snow"))}
       source.sendMessage("§a成功获得！")
     })
     return
