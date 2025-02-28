@@ -6,13 +6,13 @@ world.afterEvents.itemUse.subscribe(data => {
 
   if (data.itemStack.typeId === "hidden:item_giver") {
     if (!source.hasTag("admin")) {
-      source.sendMessage("§c你没有使用许可！")
+      source.sendMessage("§c你没有使用许可，需要admin标签！")
       return
     }
     
     const ui = new ActionFormData()
-    ui.title("Hidden Item Giver")
-    ui.body("用/give指令无法获取的物品\n可以使用这个物品获取！\n\n指定需要的物品！")
+    ui.title("隐藏物品获取器|第一页")
+    ui.body("用/give指令无法获取的物品\n可以使用这个物品获取！\n指定需要的物品！")
     ui.button("使用ID给予\n§8直接用ID获得物品")
     ui.button("下界反应堆\n§8minecraft:netherreactor","textures/blocks/reactor_core_stage_0")
     ui.button("发光黒曜石\n§8minecraft:glowingobsidian","textures/blocks/glowing_obsidian")
@@ -61,22 +61,22 @@ world.afterEvents.itemUse.subscribe(data => {
     ui.button("竹子苗\n§8minecraft:bamboo_sapling","textures/blocks/bamboo")
     ui.button("生成蛋\n§8minecraft:item.spawn_egg","textures/items/spawn_egg")
     ui.button("活塞臂\n§8minecraft:piston_arm_collision","textures/blocks/piston")
-    ui.button("细雪\n§8minecraft:powder_snow","textures/blocks/powder_snow")
+    ui.button("§1下一页")
     ui.show(source).then(({canceled, selection}) => {
       if (canceled) return
       const inventory = source.getComponent("inventory").container
 
       if (selection === 0) { 
         const ui = new ModalFormData()
-        ui.title("隐藏物品获取器")
+        ui.title("隐藏物品获取器|ID获取")
         ui.textField("请输入您想要获取的物品ID","")
         ui.show(source).then(({canceled, formValues}) => {
           if (canceled) return
           try {
             inventory.addItem(new ItemStack(formValues[0]))
-            source.sendMessage("§aOK！")
+            source.sendMessage("§a获得成功！")
           } catch(e) {
-            source.sendMessage("§cID输入错误")
+            source.sendMessage("§c未知的ID")
           }
         })
         return
@@ -128,8 +128,35 @@ world.afterEvents.itemUse.subscribe(data => {
       if (selection === 45) { inventory.addItem(new ItemStack("minecraft:bamboo_sapling"))}
       if (selection === 46) { inventory.addItem(new ItemStack("minecraft:spawn_egg"))}
       if (selection === 47) { inventory.addItem(new ItemStack("minecraft:piston_arm_collision"))}
-      if (selection === 48) { inventory.addItem(new ItemStack("minecraft:powder_snow"))}
-      source.sendMessage("§a成功获得！")
+      if (selection === 48) {
+        const ui = new ActionFormData()
+          ui.title("隐藏物品获取器|第二页")
+          ui.body("获取器的第二页。")
+          ui.button("胡萝卜\n§8minecraft:carrots","textures/blocks/carrots")
+          ui.button("可可\n§8minecraft:cocoa","textures/blocks/cocoa")
+          ui.button("反转的阳光探测器\n§8minecraft:daylight_detector_inverted","textures/blocks/daylight_detector")
+          ui.button("土豆\n§8minecraft:potatoes","textures/blocks/potatoes")
+          ui.button("西瓜茎\n§8minecraft:melon_stem","textures/blocks/melon_stem")
+          ui.button("南瓜茎\n§8minecraft:pumpkin_stem","textures/blocks/pumpkin_stem")
+          ui.button("细雪\n§8minecraft:powder_snow","textures/blocks/powder_snow")
+          ui.button("粘性活塞臂\n§8minecraft:sticky_piston_arm_collision","textures/blocks/piston")
+          ui.show(source).then(({canceled, selection}) => {
+            if (canceled) return
+            const inventory = source.getComponent("inventory").container
+            if (selection === 0) { inventory.addItem(new ItemStack("minecraft:carrots")) }
+            if (selection === 1) { inventory.addItem(new ItemStack("minecraft:cocoa")) }
+            if (selection === 2) { inventory.addItem(new ItemStack("minecraft:daylight_detector_inverted"))}
+            if (selection === 3) { inventory.addItem(new ItemStack("minecraft:potatoes")) }
+            if (selection === 4) { inventory.addItem(new ItemStack("minecraft:melon_stem"))}
+            if (selection === 5) { inventory.addItem(new ItemStack("minecraft:pumpkin_stem"))}
+            if (selection === 6) { inventory.addItem(new ItemStack("minecraft:powder_snow"))}
+            if (selection === 7) { inventory.addItem(new ItemStack("minecraft:sticky_piston_arm_collision"))}
+            source.sendMessage("§a成功获得！")
+          }
+          )
+        }
+      if (selection!==48){
+      source.sendMessage("§a成功获得！")}
     })
     return
   }
