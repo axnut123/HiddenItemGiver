@@ -38,7 +38,7 @@ world.afterEvents.itemUse.subscribe(data => {
     ui.button("冰霜\n§8minecraft:frosted_ice","textures/blocks/frosted_ice_0")
     ui.button("§　client_request_placeholder_block","textures/blocks/missing_tile")
     ui.button("挂墙的旗帜\n§8minecraft:wall_banner","textures/blocks/wall_banner")
-    ui.button("墙上的告示牌\n§8minecraft:wall_sign","textures/blocks/wall_sign")
+    ui.button("墙上的告示牌\n§8minecraft:wall_sign","textures/blocks/oak_plank")
     ui.button("移动的方块\n§8minecraft:moving_block","textures/blocks/missing_tile")
     ui.button("带蜡烛的蛋糕\n§8minecraft:candle_cake","textures/blocks/candle_cake")
     ui.button("熄灭的红石火把\n§8minecraft:unlit_redstone_torch","textures/blocks/unlit_redstone_torch")
@@ -140,6 +140,8 @@ world.afterEvents.itemUse.subscribe(data => {
           ui.button("南瓜茎\n§8minecraft:pumpkin_stem","textures/blocks/pumpkin_stem")
           ui.button("细雪\n§8minecraft:powder_snow","textures/blocks/powder_snow")
           ui.button("粘性活塞臂\n§8minecraft:sticky_piston_arm_collision","textures/blocks/piston")
+          ui.button("调试棒(可能在开发者模式有效)\n§8minecraft:debug_stick","textures/items/stick")
+          ui.button("站立的告示牌\n§8minecraft:standing_sign","textures/blocks/plank")
           ui.show(source).then(({canceled, selection}) => {
             if (canceled) return
             const inventory = source.getComponent("inventory").container
@@ -151,6 +153,8 @@ world.afterEvents.itemUse.subscribe(data => {
             if (selection === 5) { inventory.addItem(new ItemStack("minecraft:pumpkin_stem"))}
             if (selection === 6) { inventory.addItem(new ItemStack("minecraft:powder_snow"))}
             if (selection === 7) { inventory.addItem(new ItemStack("minecraft:sticky_piston_arm_collision"))}
+            if (selection === 8) { inventory.addItem(new ItemStack("minecraft:debug_stick"))}
+            if (selection === 9) { inventory.addItem(new ItemStack("minecraft:standing_sign"))}
             source.sendMessage("§a成功获得！")
           }
           )
