@@ -191,7 +191,7 @@ world.afterEvents.itemUse.subscribe(data => {
             if (selection === 20) { inventory.addItem(new ItemStack("minecraft:hard_stained_glass_pane"))}
             if (selection === 21) { inventory.addItem(new ItemStack("minecraft:element_0"))}
             if (selection === 22) { inventory.addItem(new ItemStack("minecraft:bleach"))}
-            if (selection === 23) { inventory.addItem(new ItemStack("minecraft:icebomb"))}
+            if (selection === 23) { inventory.addItem(new ItemStack("minecraft:ice_bomb"))}
             if (selection === 24) { inventory.addItem(new ItemStack("minecraft:rapid_fertilizer"))}
             if (selection === 25) { inventory.addItem(new ItemStack("minecraft:medicine"))}
             if (selection === 26) { inventory.addItem(new ItemStack("minecraft:sparkler"))}
